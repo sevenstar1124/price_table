@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pricing table</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Abel&family=Kaushan+Script&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<main class="pricing-table-container">
+			{% if not product.product_name %}
+				<div class="no-data-comment .abel-regular">
+					<p>Sorry, Product not found</p>
+				</div>
+			{% else %}
+				<section class="pricing-table-bill">
+					<header class="bill-header">
+						<h1 class="bill-title kaushan-script-regular">
+							<!-- Faber Polychromos Colored Pencil Set of 120 -->
+							{{ product.product_name }}
+						</h1>
+						<div class="image-group">
+							<!-- <img src="./assets/flower2.png" alt="flower2" class="flower" style="opacity: 0;" /> -->
+							<img
+								src="{{ product.image_url | safe }}"
+								alt=""
+								class="brand mobile-display"
+								alt="Product Image"
+							/>
+						</div>
+					</header>
+					<div class="bill-content">
+						<ul>
+							{% if product.sale_active is true %}
+								<li class="bill-detail highlight">
+									<div class="bill-detail-title open-sans-500">On Sale</div>
+									<div class="bill-detail-info">
+										<span class="bill-detail-extra abel-regular">
+											(Ends: {{ product.sale_end }})
+										</span>
+										<span class="bill-detail-spacer"></span>
+										<span class="bill-detail-value abel-regular"> {{ product.sale_price }} </span>
+										<div class="highlight-padding">
+											
+										</div>
+									</div>
+								</li>
+								<li class="bill-detail">
+									<div class="bill-detail-title open-sans-500">Delta's Price</div>
+									<div class="bill-detail-info">
+										<span class="bill-detail-extra abel-regular"></span>
+										<span class="bill-detail-spacer"></span>
+										<span class="bill-detail-value abel-regular"> {{ product.delta_price }} </span>
+									</div>
+								</li>
+							{% else %}
+								<li class="bill-detail">
+									<div class="bill-detail-title open-sans-500">Delta's Price</div>
+									<div class="bill-detail-info">
+										<span class="bill-detail-extra abel-regular"></span>
+										<span class="bill-detail-spacer"></span>
+										<span class="bill-detail-value abel-regular"> {{ product.delta_price }} </span>
+									</div>
+								</li>
+							{% endif %}
+							<li class="bill-detail">
+								<div class="bill-detail-title open-sans-500">Regular Price</div>
+								<div class="bill-detail-info">
+									<span class="bill-detail-extra abel-regular"></span>
+									<span class="bill-detail-spacer"></span>
+									<span class="bill-detail-value abel-regular"> {{ product.regular_price }} </span>
+								</div>
+							</li>
+							<li class="bill-detail">
+								<div class="bill-detail-title open-sans-500">SKU</div>
+								<div class="bill-detail-info">
+									<span class="bill-detail-extra abel-regular"></span>
+									<span class="bill-detail-spacer"></span>
+									<span class="bill-detail-value abel-regular">{{ product.product_code }}</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="pricing-table-description">
+					<div class="header-image">
+						<img
+							src="./assets/flower1.png"
+							alt="flower1"
+							style="opacity: 0; "
+							class="flower"
+						/>
+						<img
+							src="{{ product.image_url | safe }}"
+							alt=""
+							class="brand mobile-display-none"
+						/>
+					</div>
+					{% set truncated_description = product.description[:500] %}
+					{% if product.description | length > 500 %}
+						<p aria-roledescription="article" class="text-content abel-regular" >
+							{{ truncated_description }}
+						</p>
+					{% else %}
+						<p aria-roledescription="article" class="text-content abel-regular" >
+							{{ product.description }}
+						</p>
+					{% endif %}
+				</section>
+			{% endif %}
+		</main>
+	</body>
+</html>

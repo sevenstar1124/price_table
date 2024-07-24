@@ -1,0 +1,359 @@
+* {
+	box-sizing: border-box;
+	--mobile-breakpoint: 760px;
+	--header-font: 2rem;
+}
+
+body {
+	margin: 0;
+}
+
+/* font style */
+.kaushan-script-regular {
+	font-family: 'Kaushan Script', cursive;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.abel-regular {
+	font-family: 'Abel', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.open-sans-500 {
+	font-family: 'Open Sans', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 500;
+	font-style: normal;
+	font-variation-settings: 'wdth' 100;
+}
+
+/* end */
+
+/* comment */
+.no-data-comment {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 3rem;
+}
+
+.pricing-table-container {
+	display: flex;
+	flex-wrap: wrap;
+	height: 100vh;
+	min-height: 100vh;
+}
+
+.pricing-table-container .pricing-table-bill {
+	background-color: white;
+	/* float: left; */
+	width: 45%;
+	padding: 5rem;
+	justify-content: center;
+}
+
+.pricing-table-bill .bill-title {
+	font-size: var(--header-font);
+	max-width: 80%;
+	text-align: center;
+	margin: auto;
+}
+
+.pricing-table-bill .bill-header img {
+	display: block;
+	margin: auto;
+}
+.pricing-table-bill .bill-header .brand {
+	width: 250px;
+	height: 150px;
+	object-fit: cover;
+	margin-top: 1rem;
+}
+
+.pricing-table-bill .bill-header .mobile-display {
+	display: none;
+}
+
+.pricing-table-container .pricing-table-bill .bill-header {
+	padding: 1rem;
+	text-align: center;
+}
+
+.pricing-table-container .pricing-table-bill .bill-header img.flower {
+	margin-top: 1rem;
+	width: 200px;
+}
+
+.pricing-table-bill .bill-content ul {
+	margin-top: 5rem;
+	padding: 0;
+}
+
+.pricing-table-bill .bill-detail {
+    position: relative;
+	text-decoration: none;
+	list-style: none;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.pricing-table-bill .bill-detail span {
+	display: block;
+}
+
+.pricing-table-bill .bill-detail .bill-detail-info {
+	display: flex;
+	width: 100%;
+}
+
+.pricing-table-bill .bill-detail .bill-detail-title {
+    text-transform: uppercase;
+}
+.pricing-table-bill .bill-detail.highlight {
+    background-color: #fc525225;
+    /* background-image: linear-gradient(to bottom,#f572722f, #fc2b2b71, #f5555534); */
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    padding: 4px;
+    box-shadow: 2px 2px 3px grey;
+}
+
+.pricing-table-bill .bill-detail .bill-detail-value {
+    font-size: 1.45rem;
+    font-weight: bold;
+}
+
+.pricing-table-bill .bill-detail-info .bill-detail-extra {
+	text-wrap: nowrap;
+}
+
+.pricing-table-bill .bill-detail-info .bill-detail-spacer {
+	display: block;
+	border-bottom: 1px dashed grey;
+	width: 100%;
+}
+
+/* pricing-table-description */
+.pricing-table-description {
+	/* float: right; */
+	background-color: #f2cbb8;
+	width: 55%;
+	height: 100%;
+}
+
+.pricing-table-description .header-image {
+	width: 100%;
+	text-align: center;
+}
+
+.pricing-table-description .header-image img {
+	display: block;
+	width: 40%;
+	max-width: 350px;
+	margin: auto;
+}
+
+.pricing-table-description .text-content {
+	padding: 1rem;
+	margin-left: 4rem;
+	margin-right: 4rem;
+	font-size: 1.2rem;
+	line-height: 1.75rem;
+}
+
+/* Responsive style */
+
+@media (orientation: portrait) {
+	* {
+		font-size: 13px;
+        --header-font: 1.7rem;
+	}
+	body {
+		max-height: 100vh;
+		overflow: hidden;
+	}
+	.pricing-table-container .pricing-table-bill {
+		width: 100%;
+		height: fit-content;
+		padding: 1rem;
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+	.pricing-table-container .pricing-table-description {
+		width: 100%;
+		height: 100%;
+	}
+    .pricing-table-container .pricing-table-bill .bill-header img.flower {
+        max-width: 120px;
+        max-height: 80px;
+        object-fit: contain;
+    }
+	.pricing-table-bill .bill-header .mobile-display {
+		display: block;
+	}
+	.pricing-table-bill .bill-content ul {
+		margin-top: 1rem;
+	}
+	.pricing-table-bill .bill-detail {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+	.pricing-table-description .text-content {
+		margin-left: 3rem;
+		margin-right: 3rem;
+	}
+	.pricing-table-description .header-image img {
+		margin-top: 1rem;
+		min-width: 150px;
+		max-height: 80px;
+		object-fit: contain;
+	}
+	.pricing-table-description .text-content {
+		padding: 0;
+        margin-top: 0;
+        text-align: center;
+	    line-height: 1.3rem;
+	}
+	.pricing-table-description .header-image .mobile-display-none {
+		display: none;
+	}
+ 
+    @media screen and (max-width: 380px) {
+        * {
+            font-size: 12px;
+            --header-font: 1.5rem;
+        }
+        .pricing-table-bill .bill-title {
+            width: 90%;
+        }
+        .pricing-table-bill .bill-header .image-group img.flower {
+            width: 100px;
+            height: 30px;
+            object-fit: contain;
+            margin-top: 0; 
+        }
+        .pricing-table-bill .bill-header img.brand {
+            width: 150px;
+            height: 100px;
+            margin-top: 0;
+        }
+        .pricing-table-bill .bill-content ul {
+            margin-top: 8px;
+        }
+        .pricing-table-description .header-image img.flower {
+            min-width: 100px;
+            max-height: 50px;
+            object-fit: contain;
+        }
+    }
+
+    @media screen and (min-width: 820px) {
+        * {
+            font-size: 16px;
+            --header-font: 1.8rem;
+        }
+        .pricing-table-container .pricing-table-bill {
+            width: 100%;
+            height: fit-content;
+            padding: 2rem;
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
+        .pricing-table-container .pricing-table-description {
+            width: 100%;
+            height: 100%;
+        }
+        .pricing-table-container .pricing-table-bill .bill-header img.flower {
+            max-width: 130px;
+            max-height: 100px;
+            object-fit: contain;
+        }
+        .pricing-table-bill .bill-content ul {
+            margin-top: 1.5rem;
+        }
+    }
+}
+
+
+@media (orientation: landscape) {
+    @media screen and (max-height: 430px) {
+        * {
+            font-size: 13px;
+            --header-font: 1.5rem;
+        }
+        body {
+            max-height: 100vh;
+            overflow: hidden;
+        }
+        .pricing-table-container .pricing-table-bill {
+            height: fit-content;
+            padding: 2rem;
+            margin: auto;
+        }
+        .pricing-table-bill .bill-title {
+            max-width: 90%;
+            text-align: center;
+            margin: auto;
+        }
+        .pricing-table-container .pricing-table-bill .bill-header img.flower {
+            max-width: 100px;
+            max-height: 50px;
+            object-fit: contain;
+        }
+        .pricing-table-bill .bill-content ul {
+            margin-top: 1rem;
+        }
+        .pricing-table-bill .bill-detail {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .pricing-table-description {
+            /* margin: auto; */
+            height: 100vh;
+        }
+        .pricing-table-description .text-content {
+            margin-left: 3rem;
+            margin-right: 3rem;
+        }
+        .pricing-table-description .header-image img.flower {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            min-width: 100px;
+            max-height: 50px;
+    
+        }
+        .pricing-table-description .header-image img.brand {
+            min-width: 130px;
+            max-height: 120px;
+            object-fit: contain;
+        }
+        .pricing-table-description .text-content {
+            padding: 0;
+            font-size: 13px;
+            line-height: 1.3rem;
+        }
+    }
+    @media screen and (max-height: 770px) {
+        .pricing-table-container .pricing-table-bill {
+            padding: 2rem;
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+        .pricing-table-description .text-content {
+            margin-left: 3rem;
+            margin-right: 3rem;
+        }
+    }
+
+	/* .pricing-table-description .header-image .mobile-display-none {
+		display: none;
+	} */
+}
+
